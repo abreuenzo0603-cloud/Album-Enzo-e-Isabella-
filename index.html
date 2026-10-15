@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Princesa e o Sapo — Álbum de Fotos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f7f3e8;--paper:#fffdf6;--ink:#24352c;--mut:#5b6b60;--gold:#b89a55;--em:#1f6b4f;--sage:#9caf88}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font:300 16px/1.6 'Jost',system-ui,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 50% 0,#2c5a45,#143326 60%,#0e2519);display:flex;flex-direction:column;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) 3vw calc(14px + env(safe-area-inset-bottom,0px));overflow-x:hidden}
+.top{display:flex;align-items:center;gap:8px;color:#f1ecdc;font:300 1.5rem 'Cormorant Garamond',Georgia,serif;letter-spacing:.03em;z-index:2}
+.top svg{width:28px;height:28px;color:#cfe0b6}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;z-index:2;min-height:0}
+.book{display:grid;grid-template-columns:1fr 1fr;width:min(1000px,94vw);height:min(72vh,740px);background:var(--paper);border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 1px var(--gold);position:relative;perspective:1200px;animation:none}
+.book:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:60px;margin-left:-30px;background:linear-gradient(90deg,transparent,rgba(36,53,44,.18),transparent);pointer-events:none;z-index:3}
+.pg{padding:30px 34px 22px;display:flex;flex-direction:column;align-items:center;min-height:0;position:relative;background:linear-gradient(var(--paper),var(--cream))}
+.pg+.pg{border-left:1px solid rgba(184,154,85,.3)}
+.fr{flex:1;min-height:0;width:100%;border:1px solid var(--gold);padding:9px;background:#fff}
+.fr img,.fr svg{width:100%;height:100%;object-fit:cover;display:block}
+.cap{font:italic 300 1.35rem 'Cormorant Garamond',serif;margin:14px 0 2px;text-align:center}
+.num{font-size:.72rem;letter-spacing:.3em;color:var(--gold)}
+.cover,.end{justify-content:center;text-align:center;gap:6px}
+.cover h1{font:300 clamp(2.2rem,5vw,3.6rem)/1.05 'Cormorant Garamond',serif;margin:10px 0 0}
+.cover h1 em{color:var(--em)}
+.cover svg,.end svg{width:64px;color:var(--em)}
+.cover p,.end p{font:italic 300 1.25rem 'Cormorant Garamond',serif;color:var(--mut);margin:8px 0}
+.eb{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.orn{color:var(--gold)}
+.ctl{display:flex;align-items:center;gap:22px;margin-top:20px;color:#f1ecdc;font-size:.85rem;letter-spacing:.2em}
+.ctl button{width:50px;height:50px;border-radius:50%;border:1px solid rgba(207,224,182,.45);background:rgba(255,255,255,.05);color:#f1ecdc;font-size:1.5rem;cursor:pointer;transition:.3s}
+.ctl button:hover:not(:disabled){background:var(--gold);border-color:var(--gold)}
+.ctl button:disabled{opacity:.3;cursor:default}
+.hint{color:#a9b8ab;font-size:.8rem;margin:10px 0 0;text-align:center}
+.fly{position:fixed;width:5px;height:5px;border-radius:50%;background:#e9cf8a;box-shadow:0 0 12px 4px rgba(233,207,138,.5);animation:fl 9s ease-in-out infinite;opacity:0;pointer-events:none}
+@keyframes fl{0%,100%{transform:translate(0,0);opacity:0}25%,75%{opacity:.9}50%{transform:translate(22px,-38px)}}
+@keyframes nx{from{opacity:0;transform:translateX(34px) rotateY(-7deg)}}
+@keyframes pv{from{opacity:0;transform:translateX(-34px) rotateY(7deg)}}
+@media (max-width:819px){.book{grid-template-columns:1fr;width:min(430px,92vw);height:min(72vh,680px)}.book:before{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.mini{flex:1;min-height:0;width:100%;display:grid;gap:10px;margin:10px 0 8px}
+.m1{grid-template:1fr/1fr}.m2{grid-template:1fr 1fr/1fr}
+.m3{grid-template:1.4fr 1fr/1fr 1fr}.m3 .ph:first-child{grid-column:1/3}
+.m4{grid-template:1fr 1fr/1fr 1fr}
+.m5{grid-template:1.2fr 1.2fr 1fr/repeat(6,1fr)}
+.m5 .ph:nth-child(1){grid-column:1/5;grid-row:1/3}.m5 .ph:nth-child(2){grid-column:5/7;grid-row:1}.m5 .ph:nth-child(3){grid-column:5/7;grid-row:2}.m5 .ph:nth-child(4){grid-column:1/4;grid-row:3}.m5 .ph:nth-child(5){grid-column:4/7;grid-row:3}
+.ph{display:block;min-height:0;min-width:0;overflow:hidden;padding:5px;background:#fff;border:1px solid rgba(184,154,85,.55);box-shadow:0 4px 10px rgba(36,53,44,.18);transform:rotate(var(--r));cursor:zoom-in;transition:transform .3s}
+.ph:hover,.ph:focus-visible{transform:rotate(0) scale(1.03);z-index:2}
+.ph img,.ph svg{width:100%;height:100%;object-fit:cover;display:block}
+.lb{position:fixed;inset:0;z-index:30;background:rgba(8,18,13,.94);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex;animation:nx .3s}
+#lbf{border:1px solid var(--gold);background:#fff;padding:6px;border-radius:4px}
+#lbf img{display:block;max-width:92vw;max-height:72vh}#lbf svg{display:block;width:min(86vw,460px);height:68vh}
+#lbc{color:#f1ecdc;font:italic 300 1.35rem 'Cormorant Garamond',serif;margin-top:14px;text-align:center}
+.lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid rgba(241,236,220,.35);background:none;color:#f1ecdc;font-size:1.3rem;cursor:pointer}
+#lbx{top:calc(16px + env(safe-area-inset-top,0px));right:16px}#lbp{left:12px;top:50%}#lbn{right:12px;top:50%}
+.pg>.eb{margin-bottom:2px}
+@media (max-width:819px){#lbp,#lbn{top:auto;bottom:calc(22px + env(safe-area-inset-bottom,0px))}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><symbol id="frog" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="8"/><circle cx="44" cy="20" r="8"/><path d="M12 30c-4 6-2 18 8 22h24c10-4 12-16 8-22-6 4-34 4-40 0z"/><circle cx="20" cy="20" r="1.5" fill="currentColor"/><circle cx="44" cy="20" r="1.5" fill="currentColor"/><path d="M24 40c5 4 11 4 16 0"/></g><path d="M26 9l6-5 6 5-6 3z" fill="#b89a55"/></symbol></svg>
+<div class="top"><svg><use href="#frog"/></svg>Princesa e o Sapo</div>
+<main>
+ <div class="book" id="book" aria-live="polite"></div>
+ <nav class="ctl"><button id="pv" aria-label="Página anterior">‹</button><span id="cnt"></span><button id="nx" aria-label="Próxima página">›</button></nav>
+ <p class="hint" id="hint">Toque nas setas ou deslize para virar a página</p>
+</main>
+<div id="flies"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><button id="lbx" aria-label="Fechar">✕</button><button id="lbp" aria-label="Anterior">‹</button><button id="lbn" aria-label="Próxima">›</button><div id="lbf"></div><div id="lbc"></div></div>
+
+<script type="module">
+const U=location.hostname.split('.')[0],R=location.pathname.split('/')[1];
+const ok=/\.(jpe?g|png|webp|gif|avif)$/i;
+const nice=n=>{const t=n.replace(/\.[^.]+$/,'').replace(/^\d+[-_ ]*/,'').split(/[-_ ]+/).join(' ').trim()||'Sem título';return t[0].toUpperCase()+t.slice(1)};
+const api=async p=>(await fetch(`https://api.github.com/repos/${U}/${R}/contents/${p}`)).json();
+const mk=(f,base)=>({u:base+encodeURIComponent(f.name),t:nice(f.name)});
+let chapters=[];
+try{const j=await api('fotos');if(Array.isArray(j)){
+ for(const d of j.filter(f=>f.type=='dir')){const k=await api('fotos/'+d.name);if(Array.isArray(k))chapters.push({t:nice(d.name),ph:k.filter(f=>ok.test(f.name)).slice(0,5).map(f=>mk(f,'fotos/'+encodeURIComponent(d.name)+'/'))})}
+ const loose=j.filter(f=>f.type=='file'&&ok.test(f.name)).map(f=>mk(f,'fotos/'));
+ for(let n=0;n<loose.length;n+=5)chapters.push({t:'',ph:loose.slice(n,n+5)})}}catch(e){}
+chapters=chapters.filter(c=>c.ph.length);
+const hint=document.getElementById('hint');
+if(!chapters.length){
+ const pal=[['#e8efd4','#9caf88','#1f6b4f'],['#f4ecd2','#c9d4a8','#2f7a5c'],['#fbf3df','#e8cfa0','#7f9a6f'],['#d9e6d2','#7fa38a','#1b5a43'],['#f6e8bd','#b8c27c','#2a6a4d']];
+ const nm=[['Lagoas encantadas',['Orvalho na aurora','A princesa do lago','Espelho d’água','Vitória-régia','Crepúsculo']],['Jardim em segredo',['Botões de maio','Margaridas','Coroa de campo','Pétalas ao vento','Violetas']],['Clareira dourada',['Raios de sol','Folhas de ouro','Caminho de musgo','Samambaias','Fim de tarde']],['Retratos de conto',['Vestido de linho','Olhar de princesa','Mãos e flores','Véu de luz','Riso solto']],['Manhãs de orvalho',['Teia de prata','Gotas','Névoa na lagoa','Primeiro raio','Pássaro curioso']],['Luzes mágicas',['Vaga-lumes','Lanternas','Brilho entre folhas','Lagoa à noite','Estrela cadente']]];
+ chapters=nm.map(([t,ls],a)=>({t,ph:ls.map((l,b)=>({t:l,c:pal[(a+b)%5],i:a*5+b}))}));
+ hint.textContent='Ilustrações provisórias: coloque suas fotos na pasta “fotos” do repositório.';
+}else hint.textContent='Toque numa foto para ampliar · deslize para virar a página';
+const art=p=>{const[a,b,d]=p.c,g='g'+p.i;return`<svg viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${p.t}"><defs><linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".6" stop-color="${b}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs><rect width="300" height="380" fill="url(#${g})"/><circle cx="${70+(p.i%6)*32}" cy="110" r="32" fill="#fff6d8" opacity=".75"/><path d="M0 250q80-50 160 0t140-10V380H0z" fill="${d}" opacity=".55"/><path d="M0 295q100-40 190 0t110-8V380H0z" fill="${d}" opacity=".85"/></svg>`};
+const pages=[{k:'cover'},...chapters.map((c,n)=>({k:'ch',c,n:n+1})),{k:'end'}];
+if(pages.length%2)pages.push({k:'blank'});
+const book=document.getElementById('book'),cnt=document.getElementById('cnt'),B=document.getElementById('pv'),N=document.getElementById('nx');
+const mq=matchMedia('(min-width:820px)'),rot=[-1.2,1,.8,-.8,1.4];let i=0,dir='nx';
+const pg=(p,pi)=>{
+ if(!p||p.k=='blank')return'<div class="pg"></div>';
+ if(p.k=='cover')return`<div class="pg cover"><span class="eb">Álbum de fotos</span><svg><use href="#frog"/></svg><h1>Princesa<br>e o <em>Sapo</em></h1><span class="orn">❦</span><p>Toda imagem conta um conto.</p></div>`;
+ if(p.k=='end')return`<div class="pg end"><svg><use href="#frog"/></svg><p>E viveram felizes para sempre.</p><span class="orn">❦</span><span class="eb">Fim</span></div>`;
+ const c=p.c;
+ return`<div class="pg"><div class="eb">${c.t||'Capítulo '+p.n}</div><div class="mini m${c.ph.length}">${c.ph.map((f,k)=>`<button class="ph" style="--r:${rot[k]}deg" data-p="${pi}" data-k="${k}" aria-label="Ampliar ${f.t}">${f.u?`<img src="${f.u}" alt="${f.t}" loading="lazy">`:art(f)}</button>`).join('')}</div><div class="num">${String(p.n).padStart(2,'0')}</div></div>`};
+function render(){
+ const two=mq.matches;if(two)i-=i%2;
+ book.innerHTML=pg(pages[i],i)+(two?pg(pages[i+1],i+1):'');
+ book.style.animation='none';void book.offsetWidth;book.style.animation=`${dir} .6s ease`;
+ const last=pages.length-1,shown=two?Math.min(i+2,pages.length):i+1;
+ cnt.textContent=`${shown} / ${pages.length}`;
+ B.disabled=i<=0;N.disabled=i+(two?2:1)>last}
+function go(d){const s=mq.matches?2:1,n=i+d*s;if(n<0||n>=pages.length)return;dir=d>0?'nx':'pv';i=n;render()}
+B.onclick=()=>go(-1);N.onclick=()=>go(1);
+// ampliar foto
+const lb=document.getElementById('lb'),lbf=document.getElementById('lbf'),lbc=document.getElementById('lbc');let lp=0,lk=0;
+function show(){const L=pages[lp].c.ph,p=L[lk];lbf.innerHTML=p.u?`<img src="${p.u}" alt="${p.t}">`:art(p);lbc.textContent=p.t+' · '+(lk+1)+' / '+L.length;lb.classList.add('open')}
+const step=d=>{const n=pages[lp].c.ph.length;lk=(lk+d+n)%n;show()};
+book.addEventListener('click',e=>{const b=e.target.closest('.ph');if(!b)return;lp=+b.dataset.p;lk=+b.dataset.k;show()});
+document.getElementById('lbx').onclick=()=>lb.classList.remove('open');
+document.getElementById('lbp').onclick=()=>step(-1);document.getElementById('lbn').onclick=()=>step(1);
+lb.onclick=e=>{if(e.target==lb)lb.classList.remove('open')};
+addEventListener('keydown',e=>{const o=lb.classList.contains('open');
+ if(e.key=='Escape')lb.classList.remove('open');
+ if(e.key=='ArrowRight')o?step(1):go(1);if(e.key=='ArrowLeft')o?step(-1):go(-1)});
+let x0=null;book.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+book.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>45)go(dx<0?1:-1);x0=null});
+mq.onchange=()=>{dir='nx';render()};
+render();
+const fl=document.getElementById('flies');for(let k=0;k<14;k++){const s=document.createElement('i');s.className='fly';s.style.cssText=`left:${Math.random()*98}%;top:${Math.random()*95}%;animation-delay:${Math.random()*9}s;animation-duration:${7+Math.random()*6}s`;fl.appendChild(s)}
+</script>
+</body>
+</html>
